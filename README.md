@@ -1,3 +1,15 @@
+# Colab Adaptation of LarsNet
+<br/>
+*WIP*
+<br/><br/><br/>
+<hr>
+<hr>
+<hr>
+<hr>
+<br/><br/>
+original work=>
+<br/><br/>
+
 # Deep Drums Demixing 🥁
 
 We introduce **StemGMD**, a large-scale multi-kit audio dataset of isolated single-instrument drum stems. Each audio clip is synthesized from MIDI recordings of expressive drums performances from Magenta's [Groove MIDI Dataset](https://magenta.tensorflow.org/datasets/groove) using ten real-sounding acoustic drum kits. 
