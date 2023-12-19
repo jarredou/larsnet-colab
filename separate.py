@@ -23,11 +23,13 @@ def separate(input_dir: Union[str, Path], output_dir: Union[str, Path], wiener_e
     )
 
     for mixture in input_dir.rglob("*.wav"):
-
+        print(f"Processing {mixture}")
         stems = larsnet(mixture)
-
+        #print(f"stems  = {stems}")
         for stem, waveform in stems.items():
-            save_path = output_dir.joinpath(stem, f'{mixture.stem}.wav')
+            #print(f'stem = {stem}')
+            #print(f'mixture.stem = {mixture.stem}_{stem}')
+            save_path = output_dir.joinpath(f'{mixture.stem}_{stem}.wav')
             save_path.parent.mkdir(parents=True, exist_ok=True)
             sf.write(save_path, waveform.cpu().numpy().T, larsnet.sr)
 
@@ -37,7 +39,7 @@ if __name__ == '__main__':
     parser.add_argument('-i', '--input_dir', type=str, required=True, help="Path to the root directory where to find the target drum mixtures.")
     parser.add_argument('-o', '--output_dir', type=str, default='separated_stems', help="Path to the directory where to save the separated tracks.")
     parser.add_argument('-w', '--wiener_exponent', type=float, default=None, help="Positive α-Wiener filter exponent (float). Use it only if Wiener filtering is to be applied.")
-    parser.add_argument('-d', '--device', type=str, default='cpu', help="Torch device. Default 'cpu'")
+    parser.add_argument('-d', '--device', type=str, default='cuda', help="Torch device. Default 'cpu'")
 
     args = vars(parser.parse_args())
 
