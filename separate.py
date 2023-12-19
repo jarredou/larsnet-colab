@@ -32,6 +32,7 @@ def separate(input_dir: Union[str, Path], output_dir: Union[str, Path], wiener_e
             save_path = output_dir.joinpath(f'{mixture.stem}_{stem}.wav')
             save_path.parent.mkdir(parents=True, exist_ok=True)
             sf.write(save_path, waveform.cpu().numpy().T, larsnet.sr)
+    print(f"Processing Done ! File saved to {output_dir}")
 
 
 if __name__ == '__main__':
