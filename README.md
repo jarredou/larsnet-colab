@@ -1,6 +1,7 @@
 # Colab Adaptation of LarsNet
 <br/>
 *WIP*
+https://colab.research.google.com/github/jarredou/larsnet-colab/blob/main/LarsNet_Colab.ipynb
 <br/><br/><br/>
 <hr>
 <hr>
